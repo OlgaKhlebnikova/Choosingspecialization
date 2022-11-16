@@ -1,11 +1,12 @@
-﻿Console.WriteLine("Написать программу, которая из имеющегося массива строк формирует массив из строк, длина которых меньше либо равна 3 символа.");
-    Console.WriteLine();
+﻿Console.Clear();
+Console.WriteLine("Написать программу, которая из имеющегося массива строк формирует массив из строк, длина которых меньше либо равна 3 символа.");
+Console.WriteLine();
 
-    Console.WriteLine("Введите число элементов массива: ");
-    int N = Convert.ToInt32(Console.ReadLine());
-   
-    string[] Random(string[] array_random)
-    {
+Console.WriteLine("Введите число элементов массива, который вы хотите ввести: ");
+int N = Convert.ToInt32(Console.ReadLine());
+
+string[] Random(string[] array_random)
+{
     //Random rnd = new Random();
     for (int i = 0; i < array_random.Length; i++)
     {
@@ -16,39 +17,37 @@
     }
 
     return array_random;
+}
+string[] array = new string[N];
+array = Random(array);
+
+Console.Write("Массив строк [" + String.Join(",", array) + "]");
+Console.WriteLine();
+
+
+int newArrayLength = 0;
+for (int i = 0; i < array.Length; i++)
+{
+
+    if (array[i].Length <= 3)
+    {
+        newArrayLength++;
     }
-    string[] array = new string[N];
-    array = Random(array);
-    
-    Console.Write("Массив строк [" + String.Join(",",array) + "]"); 
-    Console.WriteLine();
 
-    
-    int newArrayLength = 0;
-    for (int i = 0; i < array.Length-1; i++)
-     {
-        
-        
-        if (array[i].Length <= 3)
-        {
-            newArrayLength++;
-        }
-     
-     }
+}
 
-    string[] newarray = new string[newArrayLength];
-    int j=0;
-     for (int i = 0; i < array.Length-1; i++)
-     {
-        
-        
-        if (array[i].Length <= 3)
-        {
-            newarray[j]=array[i];
-            j++;
+string[] newarray = new string[newArrayLength];
+int j = 0;
+for (int i = 0; i < array.Length; i++)
+{
 
-        }
-     
-     }
-    Console.Write("Новый массив строк [" + String.Join(",",newarray) + "]"); 
-     
+
+    if (array[i].Length <= 3)
+    {
+        newarray[j] = array[i];
+        j++;
+
+    }
+
+}
+Console.Write("Новый массив строк [" + String.Join(",", newarray) + "]");
