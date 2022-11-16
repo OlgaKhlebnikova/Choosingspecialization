@@ -6,7 +6,7 @@
    
     string[] Random(string[] array_random)
     {
-    Random rnd = new Random();
+    //Random rnd = new Random();
     for (int i = 0; i < array_random.Length; i++)
     {
         string? userString = " ";
@@ -21,5 +21,34 @@
     array = Random(array);
     
     Console.Write("Массив строк [" + String.Join(",",array) + "]"); 
+    Console.WriteLine();
 
     
+    int newArrayLength = 0;
+    for (int i = 0; i < array.Length-1; i++)
+     {
+        
+        
+        if (array[i].Length <= 3)
+        {
+            newArrayLength++;
+        }
+     
+     }
+
+    string[] newarray = new string[newArrayLength];
+    int j=0;
+     for (int i = 0; i < array.Length-1; i++)
+     {
+        
+        
+        if (array[i].Length <= 3)
+        {
+            newarray[j]=array[i];
+            j++;
+
+        }
+     
+     }
+    Console.Write("Новый массив строк [" + String.Join(",",newarray) + "]"); 
+     
